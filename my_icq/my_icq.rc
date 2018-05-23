@@ -1,0 +1,32 @@
+/* Wedit generated resource file */
+#ifdef __LCC__
+#include <windows.h>
+#endif
+#include "my_icqres.h"
+
+
+IDD_MAINDIALOG DIALOG 9, -32, 312, 343
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "my_icq"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        ID_TEXT, 6, 158, 300, 150, ES_MULTILINE | ES_AUTOVSCROLL | WS_VSCROLL
+    PUSHBUTTON      "Настройки", ID_CONFIG, 142, 310, 50, 14
+    LTEXT           "Text", ID_STATUS, 6, 326, 300, 10, SS_SUNKEN
+    EDITTEXT        ID_SCREEN, 6, 6, 300, 150, ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "Отправить", IDOK, 198, 310, 50, 14
+    PUSHBUTTON      "Выход", IDCANCEL, 254, 310, 50, 14
+END
+
+IDD_CONFIG_DIALOG DIALOG 5, -31, 414, 330
+STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Настройки"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Выход", ID_EXIT, 357, 6, 50, 16
+    PUSHBUTTON      "Сброс", ID_RESET, 306, 6, 50, 16
+    PUSHBUTTON      "Сохранить", ID_SAVE, 255, 6, 50, 16
+    EDITTEXT        ID_NAMES, 6, 24, 200, 300, ES_RIGHT | ES_MULTILINE | ES_READONLY | NOT WS_BORDER
+    EDITTEXT        ID_VALUES, 208, 24, 200, 300, ES_MULTILINE | NOT WS_BORDER
+END
+ID_ICON_MAIN ICON "c:\\lcc\\projects\\my_icq\\tmpres9112221_icon0101.ico"
