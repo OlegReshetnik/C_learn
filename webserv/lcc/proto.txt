@@ -1,0 +1,163 @@
+POST /cgi-bin/print_request HTTP/1.1
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-powerpoint, application/vnd.ms-excel, application/msword, application/x-shockwave-flash, */*
+Accept-Language: ru
+Content-Type: multipart/form-data; boundary=---------------------------7d62ee1f6500fe
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: localhost
+Content-Length: 734
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+
+-----------------------------7d62ee1f6500fe
+Content-Disposition: form-data; name="upload_file"; filename="C:\WebServers\home\localhost\www\ftp.php"
+Content-Type: application/octet-stream
+
+<?
+session_save_path("$DOCUMENT_ROOT/sess/");
+session_start();
+include('header.php');
+?>
+
+<table width=100% border=0 cellspacing=0 cellpadding=0><tr>
+<td align=center bgcolor="#B6E4DA"><font color="#A44200"><b>Lрщыv, фюёЄєяэvх фы  чруЁєчъш</b></font></td>
+</tr></table>
+
+<a href="ftp://195.206.63.154">TхёЄютvщ Ёхцшь FTP</f>
+<? include('banner.php'); ?>
+</body>
+</html>
+
+-----------------------------7d62ee1f6500fe
+Content-Disposition: form-data; name="upload_submit"
+
+Submit
+-----------------------------7d62ee1f6500fe--
+
+HTTP/1.1 200 OK
+Date: Sun, 14 May 2006 05:18:22 GMT
+Server: Apache/1.3.27 (Win32) PHP/4.3.6
+Transfer-Encoding: chunked
+Content-Type: text/plain
+
+
+
+****************** UPLOAD *******************
+POST /admin/___d___.php HTTP/1.1
+Accept: */*
+Accept-Language: ru
+Content-Type: multipart/form-data; boundary=---------------------------7d610916360286
+Accept-Encoding: deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: localhost
+Content-Length: 544
+Connection: Keep-Alive
+Cache-Control: no-cache
+Authorization: Basic ejp6
+
+
+222222222222222222222222
+-----------------------------7d610916360286
+Content-Disposition: form-data; name="___file___"; filename="C:\__test.txt"
+Content-Type: text/plain
+
+¦ЁютхЁър
+¦Ёюср
+12345
+-----------------------------7d610916360286
+Content-Disposition: form-data; name="___folder___"
+
+el
+-----------------------------7d610916360286
+Content-Disposition: form-data; name="upload_submit"
+
+Submit
+-----------------------------7d610916360286
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+1000000
+-----------------------------7d610916360286--
+
+
+********************************
+POST /cgi-bin/print_request HTTP/1.1
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-powerpoint, application/vnd.ms-excel, application/msword, application/x-shockw
+ave-flash, */*
+Accept-Language: ru
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: localhost
+Content-Length: 90
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+text1=1&text2=2&textarea=%C1%E5%EB%E8%E1%E5%F0%E4%E0%0D%0A&go=Submit&MAX_FILE_SIZE=1000000
+
+***** через прокси
+GET http://www.texnocom.ru/admin/forum_editor.php HTTP/1.0
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; ru) Opera 8.53
+Host: www.texnocom.ru
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: ru,en;q=0.9
+Accept-Charset: windows-1251, utf-8, utf-16, iso-8859-1;q=0.6, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Authorization: Basic ejp6
+Proxy-Authorization: Basic dGVzdDp0ZXN0
+Cookie: PHPSESSID=0fba63e1ae0149a563802d7dee92d22f
+Cookie2: $Version=1
+Pragma: no-cache
+Cache-Control: no-cache
+Proxy-Connection: close
+
+GET http://www.texnocom.ru/admin/news_editor.php HTTP/1.0
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; ru) Opera 8.53
+Host: www.texnocom.ru
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: ru,en;q=0.9
+Accept-Charset: windows-1251, utf-8, utf-16, iso-8859-1;q=0.6, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Authorization: Basic ejp6 // z:z
+Proxy-Authorization: Basic Ym9zczpzc29i // boss:ssob
+Referer: http://www.texnocom.ru/admin/
+Cookie: PHPSESSID=0fba63e1ae0149a563802d7dee92d22f
+Cookie2: $Version=1
+Proxy-Connection: close
+
+POST http://www.texnocom.ru/admin/news_editor.php HTTP/1.0
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; ru) Opera 8.53
+Host: www.texnocom.ru
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: ru,en;q=0.9
+Accept-Charset: windows-1251, utf-8, utf-16, iso-8859-1;q=0.6, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Authorization: Basic ejp6
+Proxy-Authorization: Basic Ym9zczpzc29i
+Referer: http://www.texnocom.ru/admin/news_editor.php
+Cookie: PHPSESSID=642c71bd0235ae5784696995856cb592
+Cookie2: $Version=1
+Proxy-Connection: close
+Content-Length: 701
+Content-Type: multipart/form-data; boundary=----------tUN5mMrpRBSFizIXWmUk2c
+
+POST http://www.texnocom.ru/admin/news_editor.php HTTP/1.0
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-powerpoint, application/vnd.ms-excel, application/msword, application/x-shockw
+ave-flash, */*
+Referer: http://www.texnocom.ru/admin/news_editor.php
+Accept-Language: ru
+Content-Type: multipart/form-data; boundary=---------------------------7d6242136701a8
+Proxy-Connection: Keep-Alive
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: www.texnocom.ru
+Content-Length: 813
+Pragma: no-cache
+Cookie: PHPSESSID=85fb1e3b8d0d6acc1499db8d08dcb000
+Authorization: Basic ejp6
+
+В запросе полный адрес
+Обязательно Refer:
+Конечно-же host
+Вместо Connection - Proxy-Connection: close
+Протокол HTTP/1.0
+Authorization: и Proxy-Authorization:
