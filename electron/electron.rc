@@ -1,0 +1,6 @@
+/* Wedit generated resource file */
+#ifdef __LCC__
+#include <windows.h>
+#endif
+
+100 ICON "c:\\lcc\\projects\\electron\\electron.ico"
