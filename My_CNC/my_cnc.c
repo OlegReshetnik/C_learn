@@ -33,24 +33,22 @@ void process_init( char *exe_file, double *z_up, double *z_dn, int *xy_fd, int *
 }
 */
 
-void get_params( char * str, double *z_up, double *z_dn, int *z_fd, int *xy_fd, double *scale )
-{
+void get_params( char * str, double *z_up, double *z_dn, int *z_fd, int *xy_fd, double *scale ) {
 	char * ptr;
 
 	*z_up = strtod( str, &ptr ); ptr++;
 	if( *z_up <= 0 || *z_up > 2 ) *z_up = 2;
-		*z_dn = strtod( ptr, &ptr ); ptr++;
-		if( *z_dn > 0 || *z_dn < -3 ) *z_dn = -0.2;
+	*z_dn = strtod( ptr, &ptr ); ptr++;
+	if( *z_dn > 0 || *z_dn < -3 ) *z_dn = -0.2;
 	*z_fd = (int) strtol( ptr, &ptr, 10); ptr++;
 	if( *z_fd > 500 || *z_fd < 1 ) *z_fd = 50;
-		*xy_fd = (int) strtol( ptr, &ptr, 10); ptr++;
-		if( *xy_fd > 500 || *xy_fd < 1 ) *xy_fd = 80;
+	*xy_fd = (int) strtol( ptr, &ptr, 10); ptr++;
+	if( *xy_fd > 500 || *xy_fd < 1 ) *xy_fd = 80;
 	*scale = strtod( ptr, NULL );
 	if( *scale <= 0 || *scale > 0.1 ) *scale = 0.025;
 }
 
-void get_rotate( char * str, double * sin_alfa, double * cos_alfa, double *x0, double *y0 )
-{
+void get_rotate( char * str, double * sin_alfa, double * cos_alfa, double *x0, double *y0 ) {
 	double x, y, x1, y1, alfa;
 	char * ptr;
 
@@ -65,12 +63,10 @@ void get_rotate( char * str, double * sin_alfa, double * cos_alfa, double *x0, d
 	*cos_alfa = acos( alfa );
 }
 
-int get_vals(char *str, double *x, double *y)
-{
+int get_vals(char *str, double *x, double *y) {
 	char * ptr;
 
-	while( !isdigit(*str) && *str != '-' )
-	{
+	while( !isdigit(*str) && *str != '-' ) 	{
 		if( *str == 0 || *str == ';' ) return 0; // No values
 		str ++;
 	}
@@ -82,14 +78,11 @@ int get_vals(char *str, double *x, double *y)
 	return 1; // Get values
 }
 
-int get_next_cmd( char *str, double *x, double *y, char * cmd )
-{
+int get_next_cmd( char *str, double *x, double *y, char * cmd ) {
 	strupr(str);
 
-	if( *str++ = 'P' )
-	{
-		if( *str=='U' || *str=='A' || *str=='D' )
-		{
+	if( *str++ == 'P' ) 	{
+		if( *str=='U' || *str=='A' || *str=='D' ) 		{
 			*cmd = *str++;
 			return get_vals(str, x, y);
 		}
@@ -98,8 +91,7 @@ int get_next_cmd( char *str, double *x, double *y, char * cmd )
 	return -1; // No cmd
 }
 
-int main( int argc, char *argv[] )
-{
+int main( int argc, char *argv[] ) {
 	double z_up_value, z_down_value, dpi, G_x, T_x, G_y, T_y, sin_alfa=0, cos_alfa=1, x0=0, y0=0;
 	int G_z, T_z, xy_feed, z_feed, is_z_feed, is_rotate = 0;
 	FILE *infile, *outfile;
@@ -111,8 +103,7 @@ int main( int argc, char *argv[] )
 	is_z_feed = 0; // No feed
 
 
-	if( argc < 3 )
-	{
+	if( argc < 3 ) {
 		printf(
 		"Usage: my_cnc.exe infile params1 [params2]\n\n"
 		"params1: 1,-0.2,50,80,0.025\n"
@@ -131,23 +122,20 @@ int main( int argc, char *argv[] )
 	get_params( argv[2], &z_up_value, &z_down_value, &z_feed, &xy_feed, &dpi );
 	printf( "Use parametrs: Z_UP=%.2f, Z_DN=%.2f, Z_FD=%d, XY_FD=%d, K=%.4f\n", z_up_value, z_down_value, z_feed, xy_feed, dpi );
 
-	if( argc > 3 )
-	{
+	if( argc > 3 ) {
 		get_rotate( argv[3], &sin_alfa, &cos_alfa, &x0, &y0 );
 		is_rotate = 1;
 		printf( "Use rotate: SINUS=%.3f, COSINUS=%.3f, X0=%.3f, Y0=%.3f\n", sin_alfa, cos_alfa, x0, y0 );
 	}
 
-	if( (infile = fopen( argv[1], "r" )) == NULL )
-	{
+	if( (infile = fopen( argv[1], "r" )) == NULL ) {
 		printf("Error open input file: %s ...\n", argv[1]);
 		getch();
 		return 1;
 	}
 
 	sprintf( sb, "%s.tap", argv[1] );
-	if( ( outfile = fopen( sb, "w" ) ) == NULL )
-	{
+	if( ( outfile = fopen( sb, "w" ) ) == NULL ) {
 		fclose( infile );
 		printf( "Error open output file: %s ...\n", sb );
 		getch();
@@ -156,57 +144,46 @@ int main( int argc, char *argv[] )
 
 	fprintf( outfile, "G21\nG90\nM3 S30000\nG0 X0 Y0\nF%d\n\n", xy_feed );
 
-	while( fgets(sb, MAXSTR, infile) != NULL )
-	{
+	while( fgets(sb, MAXSTR, infile) != NULL ) {
 		if( get_next_cmd( sb, &T_x, &T_y, &cmd ) == 1 ) break; // Skip to first coordinates
 	}
 
 	int ret;
- 	do
-	{
-		if( (ret = get_next_cmd( sb, &T_x, &T_y, &cmd )) != -1 ) // Find CMD
-		{
+ 	do {
+		if( (ret = get_next_cmd( sb, &T_x, &T_y, &cmd )) != -1 ) { // Find CMD
 			if( cmd == 'U' ) T_z = 1; // UP
 			else if( cmd == 'D' ) T_z = 0; // Down
 												// 'A' cmd - travel
-			if( T_z == 0 && G_z == 1 ) // Move down
-			{
-				if( is_z_feed == 0 )
-				{
+			if( T_z == 0 && G_z == 1 ) { // Move down
+				if( is_z_feed == 0 ) {
 					fprintf(outfile, "F%d\n", z_feed); // set Z feed
 					is_z_feed = 1;
 				}
 				fprintf(outfile, "G1 Z%.2f\n", z_down_value);
 				G_z = 0; // current down
 			}
-			else if( T_z == 1 && G_z == 0 ) // Move up
-			{
+			else if( T_z == 1 && G_z == 0 ) { // Move up
 				fprintf(outfile, "G0 Z%.2f\n", z_up_value);
 				G_z = 1; // current up
 			}
 
-			if( (ret == 1) && (T_x != G_x || T_y != G_y) ) // Если нашел координаты и они другие
-			{
+			if( (ret == 1) && (T_x != G_x || T_y != G_y) ) { // Р•СЃР»Рё РЅР°С€РµР» РєРѕРѕСЂРґРёРЅР°С‚С‹ Рё РѕРЅРё РґСЂСѓРіРёРµ
 				G_x = T_x;
 				G_y = T_y;
 				T_x = G_x * dpi; // convert coordinates
 				T_y = G_y * dpi;
 
-				if( is_rotate )
-				{
+				if( is_rotate ) {
 					T_x = 2 *x0 - T_x;
 					T_x = x0 + ( T_x - x0 ) * cos_alfa - ( T_y - y0 ) * sin_alfa;
 					T_y = y0 + ( T_x - x0 ) * sin_alfa + ( T_y - y0 ) * cos_alfa;
 				}
 
-				if( G_z == 1 ) // up
-				{
+				if( G_z == 1 ) { // up
 					fprintf(outfile, "G0 X%.3f Y%.3f\n", T_x, T_y );
 				}
-				else
-				{
-					if( is_z_feed == 1 )
-					{
+				else {
+					if( is_z_feed == 1 ) {
 						fprintf(outfile, "F%d\n", xy_feed); // change feed from Z to XY
 						is_z_feed = 0;
 					}
